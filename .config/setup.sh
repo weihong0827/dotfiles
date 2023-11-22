@@ -15,15 +15,21 @@ fi
 
 # Install some common packages (optional)
 echo "Installing some common packages..."
-brew install wget curl git tmux neovim koekeishiya/formulae/yabai koekeishiya/formulae/skhd docker zsh-syntax-highlighting zsh-autosuggestions
+brew install wget curl git tmux neovim koekeishiya/formulae/yabai koekeishiya/formulae/skhd docker
 
 brew tap homebrew/cask-fonts
-brew install --cask visual-studio-code jetbrains-toolbox 1password adobe-creative-cloud iterm2 kitty alfred microsoft-outlook microsoft-teams obsidian notion telegram adobe-acrobat-pro sublime-text wechat whatsabrew install --cask font-jetbrains-mono-nerd-fontpp google-chrome intellij-idea zoom font-jetbrains-mono-nerd-font
+brew install --cask visual-studio-code jetbrains-toolbox 1password adobe-creative-cloud iterm2 kitty alfred microsoft-outlook microsoft-teams obsidian notion telegram adobe-acrobat-pro sublime-text wechat whatsapp google-chrome intellij-idea zoom font-jetbrains-mono-nerd-font
 echo "Homebrew setup complete."
+
+echo "start skhd and yabai"
+yabai --start-service
+skhd --start-service
 
 echo "Installing Oh my zsh"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+export ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
@@ -40,12 +46,11 @@ fi
 
 git clone --bare https://github.com/weihong0827/dotfiles.git $HOME/.cfg
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
 
-config checkout
-config config --local status.showUntrackedFiles no
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME --local status.showUntrackedFiles no
+
 git config --global credential.helper store
+
 git config --global user.email 1176101021qiu@gmail.com
 git config --global user.name "Qiu Weihong"
-
-

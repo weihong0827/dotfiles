@@ -113,3 +113,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+eval "$(starship init zsh)"
+
+starship preset nerd-font-symbols -o ~/.config/starship.toml
+
