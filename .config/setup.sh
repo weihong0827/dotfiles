@@ -45,3 +45,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 config config --local status.showUntrackedFiles no
 git config --global credential.helper store
+git config --global user.email 1176101021qiu@gmail.com
+git config --global user.name "Qiu Weihong"
+
+
