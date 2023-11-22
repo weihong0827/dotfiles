@@ -33,15 +33,15 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZS
 
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 
-echo "Copying config files"
-git clone https://github.com/weihong0827/dotfiles.git ~/dotfiles
-
-echo "Copying config files"
-cp -r ~/dotfiles/.config ~/
-
 # Back up existing .zshrc if it exists
 if [ -e ~/.zshrc ]; then
 	mv ~/.zshrc ~/.zshrc_backup
 fi
 
-cp ~/dotfiles/.zshrc ~/
+git clone --bare https://github.com/weihong0827/dotfiles.git $HOME/.cfg
+
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+config checkout
+config config --local status.showUntrackedFiles no
+git config --global credential.helper store
