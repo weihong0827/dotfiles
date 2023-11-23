@@ -15,7 +15,7 @@ fi
 
 # Install some common packages (optional)
 echo "Installing some common packages..."
-brew install wget curl git tmux neovim koekeishiya/formulae/yabai koekeishiya/formulae/skhd docker go npm
+brew install wget curl git tmux neovim koekeishiya/formulae/yabai koekeishiya/formulae/skhd docker go npm lazygit
 
 brew tap homebrew/cask-fonts
 brew install --cask visual-studio-code jetbrains-toolbox 1password adobe-creative-cloud iterm2 kitty alfred microsoft-outlook obsidian notion telegram adobe-acrobat-pro sublime-text wechat whatsapp google-chrome intellij-idea zoom font-jetbrains-mono-nerd-font ranger ripgrep microsoft-office
